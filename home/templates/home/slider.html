@@ -1,0 +1,13 @@
+{%load static %}
+<div class="custom-slider">
+  {% for slide in slides %}
+  <div class="custom-slide  custom-slide{{forloop.counter}} active-slide" style='background: url({{slide.image.url}});'>
+      <div class="custom-overlay"></div>
+    <div class="custom-caption">
+      <h1 class='display-4 text-center'>{{slide.titre}}</h1>
+      <h3 class='font-weight-light text-center'>{{slide.sous_titre}}</h3>
+      <a class='button' href='{{slide.lien}}'>Voir Plus</a>
+    </div>
+  </div>
+  {%endfor%}
+</div>

@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+{%load static %}
+
+
+{% block title%} Acceuil {% endblock title%}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{% static '/css/slider.css' %}">
+{% endblock styles %}
+
+
+
+{% block body%}
+
+{%include 'home/slider.html' %}
+
+{% endblock body%}
+
+
+{% block scripts %}
+<script src="{% static '/js/slider.js' %}"></script>
+
+{% endblock scripts %}

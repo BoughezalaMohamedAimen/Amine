@@ -1,0 +1,98 @@
+@keyframes borderChange {
+  0%{border-radius: 30px 30px 30px 30px}
+  25%{border-radius: 35px 35px 35px 35px}
+  50%{border-radius: 30px 30px 30px 30px}
+  75%{border-radius: 35px 35px 35px 35px}
+  100%{border-radius: 30px 30px 30px 30px}
+}
+.login-box
+{
+  -webkit-animation: borderChange 10s infinite;
+  animation: borderChange 10s infinite;
+  background:rgba(22, 46, 68, .8)
+}
+@keyframes rotateChwia {
+  0%{
+      -webkit-transform: rotateZ(0deg);
+      -ms-transform: rotateZ(0deg);
+      transform: rotateZ(0deg);
+      }
+  25%{
+    -webkit-transform: scale(1.05,1.05) rotateZ(2deg);
+    -ms-transform: scale(1.05,1.05) rotateZ(2deg);
+    transform: scale(1.05,1.05) rotateZ(2deg);
+      }
+  50%{
+    -webkit-transform:scale(1,1) rotateZ(0deg);
+    -ms-transform:scale(1,1) rotateZ(0deg);
+    transform:scale(1,1) rotateZ(0deg);
+      }
+  75%{
+    -webkit-transform:scale(1.05,1.05) rotateZ(-2deg);
+    -ms-transform:scale(1.05,1.05) rotateZ(-2deg);
+    transform:scale(1.05,1.05) rotateZ(-2deg);
+      }
+  100%{
+    -webkit-transform:scale(1,1) rotateZ(0deg);
+    -ms-transform:scale(1,1) rotateZ(0deg);
+    transform:scale(1,1) rotateZ(0deg);
+      }
+}
+.login-avatar
+{
+  -webkit-animation: rotateChwia 5s infinite;
+  animation: rotateChwia 5s infinite;
+}
+
+@keyframes btnAnimation {
+  0%{
+      -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+      transform: translate(-50%,-50%);
+      }
+  25%{
+    -webkit-transform: translate(-50%,-50%) scale(2.2,2.2);
+    -ms-transform: translate(-50%,-50%) scale(2.2,2.2);
+    transform: translate(-50%,-50%) scale(2.2,2.2);
+      }
+
+  100%{
+    -webkit-transform: translate(-50%,-50%) scale(2.4,2.4);
+    -ms-transform: translate(-50%,-50%) scale(2.4,2.4);
+    transform: translate(-50%,-50%) scale(2.4,2.4);
+    opacity: 0;
+      }
+}
+.btnn:before
+{
+  -webkit-animation: btnAnimation 3s infinite;
+  animation: btnAnimation 3s infinite;
+}
+
+@keyframes landing-banner {
+  0%{
+      -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+      transform: scale(1);
+      }
+  25%{
+    -webkit-transform: scale(1.001);
+    -ms-transform: scale(1.001);
+    transform: scale(1.001);
+      }
+  50%{
+      -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+      transform: scale(1);
+      }
+  75%{
+    -webkit-transform: scale(1.001);
+    -ms-transform: scale(1.001);
+    transform: scale(1.001);
+      }
+  100%{
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    }
+}

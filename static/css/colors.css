@@ -1,0 +1,56 @@
+.nav-link
+{
+  transition:.5s all;
+}
+.nav-link:hover
+{
+  background: rgb(1,172,241);
+  border-radius: 15px 0 15px 0;
+  color:white !important;
+}
+.nav-link:hover i.text-secondary 
+{
+    color:white !important;
+}
+.dropdown-item:hover
+{
+  background: rgb(241,127,178);
+  color:white !important;
+}
+
+.text-day
+{
+    color: rgb(241,127,178);
+}
+.bg-day
+{
+  background: rgb(241,127,178);
+}
+.bg-night
+{
+  background: rgb(1,172,241);
+}
+.text-night
+{
+  color: rgb(1,172,241);
+}
+.btn-day
+{
+  background: rgb(241,127,178);
+  border:2px solid rgb(241,127,178);
+  padding: 8px;
+  cursor: pointer;
+  -webkit-transition: .5s all;
+  -o-transition: .5s all;
+  transition: .5s all;
+}
+.btn-day:hover
+{
+  background: transparent ;
+  color:rgb(241,127,178) !important;
+}
+
+a:hover
+{
+  color: rgb(241,127,178);
+}

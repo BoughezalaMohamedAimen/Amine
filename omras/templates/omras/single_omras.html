@@ -1,0 +1,33 @@
+{%extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static '/css/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static '/css/owl.theme.default.min.css' %}">
+{% endblock styles %}
+
+
+{% block title %} {{Omra.titre}} {% endblock title %}
+
+
+
+{% block body %}
+<h3 class='py-3'><a href="{{ request.get_full_path }}">{{ request.get_full_path }}</a></h3>
+{% endblock body %}
+
+
+{% block scripts %}
+
+<script>
+  $(document).ready(function(){
+    var etoiles=''
+    for(i=0; i<parseInt($('.etoiles').attr('data-stars'));i++)
+    etoiles+=' <i class="fas fa-star"></i> '
+    $('.etoiles').html(etoiles)
+  })
+</script>
+
+<script src="{% static '/js/owl.carousel.min.js' %}"></script>
+<script src="{% static '/js/caroussel.js' %}"></script>
+{% endblock scripts %}
