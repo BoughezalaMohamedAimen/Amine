@@ -195,7 +195,7 @@ class VoyageCarteForm(forms.ModelForm):
     dateRetour=forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control date','placeholder':'jj/mm/aa'}))
     nbrAdulte=forms.IntegerField(widget=forms.NumberInput(attrs={'class': 'form-control','value':'1'}))
     nbrEnfant=forms.IntegerField(widget=forms.NumberInput(attrs={'class': 'form-control','value':'0'}))
-    message=forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control','placeholder':'Mon voyage en quelque mots'}))
+    message=forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control','placeholder':'Mon voyage en quelque mots','rows':'4'}))
     nom=forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control','placeholder':'Mon nom'}))
     prenom=forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control','placeholder':'Mon Prénom'}))
     telephone=forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control','placeholder':'Mon numero'}))

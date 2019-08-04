@@ -4,9 +4,9 @@ from .models import *
 
 
 class TransfertAdmin(admin.ModelAdmin):
-    list_display = ('recu','depart','arrive', 'depart_multiple','arrive_multiple','telephone','nom')
-    list_filter = ('recu','depart','arrive','depart_multiple','arrive_multiple' )
-    fields = ('recu','depart','arrive', 'dateAller','dateRetour','nbrAdulte','depart_multiple','arrive_multiple', 'dateAller_multiple','dateRetour_multiple','nbrAdulte_multiple')
+    list_display = ('recu','depart','arrive','telephone','nom')
+    list_filter = ('recu','depart','arrive' )
+    fields = ('recu','depart','arrive', 'dateAller','dateRetour','nbrAdulte',)
     # readonly_fields = ['recu','destination','telephone', 'email','dateAller','dateRetour','nom','prenom','ville','nbrAdulte','nbrEnfant','nbrChambre']
     def has_add_permission(self, request, obj=None):
         return False

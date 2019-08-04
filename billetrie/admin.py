@@ -4,9 +4,9 @@ from .models import *
 
 
 class BilleterieAdmin(admin.ModelAdmin):
-    list_display = ('recu','depart','arrive', 'depart_multiple','arrive_multiple','telephone','nom')
-    list_filter = ('recu','depart','arrive','depart_multiple','arrive_multiple' )
-    fields = ('recu','depart','arrive', 'dateAller','dateRetour','nbrEnfant','nbrAdulte','classe','depart_multiple','arrive_multiple', 'dateAller_multiple','dateRetour_multiple','nbrEnfant_multiple','nbrAdulte_multiple','classe_multiple')
+    list_display = ('recu','depart','arrive','telephone','nom')
+    list_filter = ('recu','depart','arrive' )
+    fields = ('recu','depart','arrive', 'dateAller','dateRetour','nbrEnfant','nbrAdulte','classe')
     # readonly_fields = ['recu','destination','telephone', 'email','dateAller','dateRetour','nom','prenom','ville','nbrAdulte','nbrEnfant','nbrChambre']
     def has_add_permission(self, request, obj=None):
         return False

@@ -26,7 +26,21 @@ from home.views import Home
 from VoyageCarte.views import Carte
 from contact.views import Contact
 
+
+from .sitemaps import *
+from django.contrib.sitemaps.views import sitemap
+
+
+
+sitemaps={
+    'voyages':VoyageSitemap,
+    'omras':OmraSitemap,
+    'visas':VisaSitemap,
+    'static':staticSitemap,
+}
+
 urlpatterns = [
+    path('sitemap.xml', sitemap,{'sitemaps':sitemaps}),
     path('admin/', admin.site.urls),
     path('voyages/', include('voyages.urls')),
     path('omras/', include('omras.urls')),

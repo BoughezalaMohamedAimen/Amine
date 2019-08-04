@@ -16,37 +16,88 @@
 
 
 {% block body %}
-<div class="container">
-  <h3 class='py-3'><a href="{{ request.get_full_path }}">{{ request.get_full_path }}</a></h3>
-  <form method='post'>
-    {% csrf_token %}
-    <div class="row text-secondary">
-      {% for field in form %}
-      <div class="col-md-4">
-        <label>{{field.label}}</label>
-        {% if  field.name == "dateAller" or field.name == "dateRetour" %}
-        <h1></h1>
-        <div class="form-group">
-            <div class="input-group date" id="datetimepicker{% if field.name == 'dateAller'%}7{%else%}8{%endif%}" data-target-input="nearest">
-                {{field}}
-                <div class="input-group-append" data-target="#datetimepicker{% if field.name == 'dateAller'%}7{%else%}8{%endif%}" data-toggle="datetimepicker">
-                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+<div class="voyage-a-la-carte">
+  <div class="voyage-overlay">
+    <div class="container text-white">
+      <h1 class='py-3 text-center text-day'style='opacity:.7; -webkit-filter: blur(1px);filter: blur(1px);'><i class="fa fa-umbrella-beach"></i> <span class='text-white'>Voyage a</span> la carte</h1>
+      <form method='post'>
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-md-3">
+            <label>{{form.nom.label}}</label>
+            {{form.nom}}
+              <small class='text-day'>{{form.nom.errors}}</small>
+          </div>
+          <div class="col-md-3">
+            <label>{{form.prenom.label}}</label>
+            {{form.prenom}}
+              <small class='text-day'>{{form.prenom.errors}}</small>
+          </div>
+          <div class="col-md-3">
+            <label>{{form.email.label}}</label>
+            {{form.email}}
+              <small class='text-day'>{{form.email.errors}}</small>
+          </div>
+          <div class="col-md-3">
+            <label>{{form.telephone.label}}</label>
+            {{form.telephone}}
+              <small class='text-day'>{{form.telephone.errors}}</small>
+          </div>
+          <div class="col-md-12">
+            <hr>
+          </div>
+          <div class="col-md-3">
+            <label>{{form.destination.label}}</label>
+            {{form.destination}}
+              <small class='text-day'>{{form.destination.errors}}</small>
+          </div><div class="col-md-3">
+            <label>{{form.ville.label}}</label>
+            {{form.ville}}
+              <small class='text-day'>{{form.ville.errors}}</small>
+          </div>
+
+          <div class="col-md-3">
+            <label>Date d'aller:</label>
+            <div class="form-group">
+                <div class="input-group date" id="datetimepicker7" data-target-input="nearest">
+                    {{form.dateAller}}
+                    <div class="input-group-append" data-target="#datetimepicke7" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
                 </div>
             </div>
+
+          </div>
+          <div class="col-md-3">
+            <label>Date de retour:</label>
+            <div class="form-group">
+                <div class="input-group date" id="datetimepicker8" data-target-input="nearest">
+                    {{form.dateRetour}}
+                    <div class="input-group-append" data-target="#datetimepicker8" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+                </div>
+            </div>
+
+          </div>
+          <div class="col-md-12">
+            <hr>
+          </div>
+          <div class="col-md-8 offset-md-2">
+            <label>Info Voyage</label>
+            {{form.message}}
+              <small class='text-day'>{{form.message.errors}}</small>
+          </div>
         </div>
-        {% else %}
-        {{field}}
-        {%endif%}
-        <small class='text-day'>{{field.errors}}</small>
-      </div>
-      {%endfor%}
+        {{message}}
+        <div class="text-center py-3">
+              <button type='submit' class='button btn-day text-white'> Envoyer</button>
+        </div>
+      </form>
     </div>
-    {{message}}
-    <div class="text-center py-3">
-          <button type='submit' class='button btn-day text-white'> Envoer</button>
-    </div>
-  </form>
+  </div>
 </div>
+
 
 {% endblock body %}
 

@@ -7,6 +7,8 @@
 
 {% block styles %}
 <link rel="stylesheet" href="{% static '/css/slider.css' %}">
+<link rel="stylesheet" href="{% static '/css/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static '/css/owl.theme.default.min.css' %}">
 {% endblock styles %}
 
 
@@ -14,11 +16,53 @@
 {% block body%}
 
 {%include 'home/slider.html' %}
+<br>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="{% static '/img/logo.jpg'%}" alt="" class="img-fluid">
+      </div>
+      <div class="col-md text-center">
+        <br>
+        <h1 class='text-center text-day'>Qui sommes nous</h1>
+        <br>
+        <p class="lead">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate iste, odio dolor provident asperiores ipsam quos illum quaerat eveniet recusandae adipisci dolore, dolorem inventore soluta incidunt ut totam ex veritatis magni mollitia maxime eligendi sequi facilis sunt! Cum, distinctio, fuga.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
 
+
+<section>
+  <div class="container">
+    <hr>
+    <br>
+      <h1 class='text-day'>Nos Voyages</h1>
+      <br>
+    <div class="owl-carousel owl-theme">
+      {%for voyage in voyages%}
+      <div class="item">
+          <div class="container shadow px-0">
+            <a href="{% url 'single_voyages' voyage.slug %}">
+              <img src="{{voyage.image.url}}" alt="" class="img-fluid">
+              <h5 class='py-3 text-secondary text-center px-1'>{{voyage.titre}}</h5>
+              </a>
+          </div>
+      </div>
+      {%endfor%}
+    </div>
+  </div>
+</section>
+<br>
+<br>
 {% endblock body%}
-
 
 {% block scripts %}
 <script src="{% static '/js/slider.js' %}"></script>
-
+<script src="{% static '/js/owl.carousel.min.js' %}"></script>
+<script src="{% static '/js/caroussel.js' %}"></script>
 {% endblock scripts %}

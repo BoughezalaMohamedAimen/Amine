@@ -11,17 +11,37 @@
 {% endblock styles %}
 
 
-{% block title %} Acceuil Visas {% endblock title %}
+{% block title %} Visas disponible Algerie Kenzy&ghiles voyages {% endblock title %}
 
 
 
 {% block body %}
 
+<div class="position-relative" style='background: url(/static/img/visa.jpg);-webkit-background-size: cover;background-size: cover; height: 270px;'>
+  <h1 class="text-center center text-day  display-4" style='-webkit-filter: blur(1px);filter: blur(1px);'>Visas</h1>
+</div>
 <div class="container-fluid py-3 pr-4">
-<h3 class='py-3'><a href="{{ request.get_full_path }}">{{ request.get_full_path }}</a></h3>
-{%for visa in visas%}
-<h5><a href="{% url 'single_visas' visa.slug %}">{{visa}}</a></h5>
-{%endfor%}
+  <div class="container py-2">
+
+    <h3>Lorem ipsum dolor.</h3>
+    <p class="text-secondary">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo consequatur reprehenderit, illo modi quae asperiores sunt. Vero quam accusantium, unde, consequatur inventore sunt eligendi eos debitis harum nostrum, veniam temporibus.
+    </p>
+    <hr>
+    <div class="row">
+      {%for visa in visas%}
+      <div class="col-md-3 text-center">
+        <div class="container border px-0">
+        <img src="{% static 'img/flags/'%}{{visa.destination}}.png" alt="" class="img-fluid">
+          <h5 class='text-center'><a href="{% url 'single_visas' visa.slug %}">{{visa.destination.name}}</a></h5>
+        </div>
+      </div>
+
+      {%endfor%}
+
+    </div>
+  </div>
+
 
         <div class="pagination">
             <span class="step-links">
@@ -30,9 +50,6 @@
                     <a href="?page={{ visas.previous_page_number }}" class='btn bg-day text-white paginator'> < </a>
                 {% endif %}
 
-                <span class="current">
-                    Page {{ visas.number }} sur {{ visas.paginator.num_pages }}.
-                </span>
 
                 {% if visas.has_next %}
                     <a href="?page={{ visas.next_page_number }}" class='btn bg-day text-white paginator'> > </a>
@@ -47,32 +64,6 @@
 
 
 {% block scripts %}
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
-<script type="text/javascript">
-    $(function () {
-        $('#datetimepicker7').datetimepicker({format: 'YYYY-MM-DD'});
-        $('#datetimepicker8').datetimepicker({
-            useCurrent: false,
-            format: 'YYYY-MM-DD'
-        });
-        $("#datetimepicker7").on("change.datetimepicker", function (e) {
-            $('#datetimepicker8').datetimepicker('minDate', e.date);
-        });
-        $("#datetimepicker8").on("change.datetimepicker", function (e) {
-            $('#datetimepicker7').datetimepicker('maxDate', e.date);
-        });
-    });
-</script>
-  <script>
-    $(document).ready(function(){
 
-      var etoiles=''
-      for(i=0; i<parseInt($('.etoiles').attr('data-stars'));i++)
-      etoiles+=' <i class="fas fa-star"></i> '
-      $('.etoiles').html(etoiles)
-
-
-</script>
 {% endblock scripts %}

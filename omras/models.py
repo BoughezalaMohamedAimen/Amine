@@ -6,7 +6,8 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from django.urls import reverse
 # TRANSPORT_CHOICES=(('Avion','Avion'),('Bus','Bus'),('Bateau','Bateau'),)
 
-
+from ckeditor.fields import RichTextField
+from django.utils.text import slugify
 
 
 
@@ -49,9 +50,13 @@ class Omra(models.Model):
     image2=models.ImageField(upload_to='omras',null='true',blank='true')
     image3=models.ImageField(upload_to='omras',null='true',blank='true')
     image4=models.ImageField(upload_to='omras',null='true',blank='true')
-    description=models.TextField(blank='true')
+    description=RichTextField()
 
 
+
+    def save(self,*args,**kwargs):
+        self.slug='offre-omra-'+slugify(self.titre)+'-hotel-'+slugify(self.nom_hotel_mekka)
+        super().save(*args,**kwargs)
 
     def  __str__(self):
         return self.titre

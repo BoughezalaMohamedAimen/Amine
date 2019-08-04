@@ -8,13 +8,31 @@
 {% endblock styles %}
 
 
-{% block title %} {{visa.titre}} {% endblock title %}
+{% block title %} kenzy-&-ghiles-voyages-visas-{{visa.destination.name}} {% endblock title %}
 
 
 
 {% block body %}
-<h3 class='py-3'><a href="{{ request.get_full_path }}">{{ request.get_full_path }}</a></h3>
+<div class="position-relative" style='background: url(/static/img/visa.jpg);-webkit-background-size: cover;background-size: cover; height: 270px;'>
+  <div class="position-absolute" style='background: rgba(0,0,0,.5);width: 100%;height: 100%; top: 0;left: 0;'>
+    <h1 class="text-center center text-day  display-4" style='-webkit-filter: blur(1px);filter: blur(1px);'>Visas <span class="text-white">{{visa.destination.name}}</span></h1>
+  </div>
+</div>
+<div class="container">
+  <br>
+  <div class="row">
+    <div class="col-md-4 position-relative">
+      <img src="{% static 'img/flags/'%}{{visa.destination}}.png" alt="" class="center">
+    </div>
+    <div class="col-md">
+      <p class="lead">
+        {{visa.dossier|safe}}
+      </p>
+    </div>
+  </div>
+</div>
 {% endblock body %}
+
 
 
 {% block scripts %}

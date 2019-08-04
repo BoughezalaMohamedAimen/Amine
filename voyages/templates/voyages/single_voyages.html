@@ -3,8 +3,7 @@
 {% load humanize %}
 
 {% block styles %}
-<link rel="stylesheet" href="{% static '/css/owl.carousel.min.css' %}">
-<link rel="stylesheet" href="{% static '/css/owl.theme.default.min.css' %}">
+
 {% endblock styles %}
 
 
@@ -13,7 +12,79 @@
 
 
 {% block body %}
-<h3 class='py-3'><a href="{{ request.get_full_path }}">{{ request.get_full_path }}</a></h3>
+
+<div class="container-fluid pl-md-0">
+  <div class="row">
+    <div class="col-md-6 pl-md-0">
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      {% if voyage.image%}
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="{{voyage.image.url}}" alt="{{voyage.titre}}">
+      </div>
+      {%endif%}
+
+      {% if voyage.image2%}
+      <div class="carousel-item">
+        <img class="d-block w-100" src="{{voyage.image2.url}}" alt="{{voyage.titre}}">
+      </div>
+      {%endif%}
+
+      {% if voyage.image3%}
+      <div class="carousel-item">
+        <img class="d-block w-100" src="{{voyage.image3.url}}" alt="{{voyage.titre}}">
+      </div>
+      {%endif%}
+
+      {% if voyage.image4%}
+      <div class="carousel-item">
+        <img class="d-block w-100" src="{{voyage.image4.url}}" alt="{{voyage.titre}}">
+      </div>
+      {%endif%}
+
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+    </div>
+    <div class="col-md">
+      <br><br>
+      <h1 class='text-day text-center py-3'>{{voyage.titre}}</h1>
+      <hr>
+      <div class="row text-center">
+        <div class="col-md-6">
+          <span class='text-secondary'>Destination :</span> {{voyage.destination.name}}
+        </div>
+        <div class="col-md-6">
+            <span class='text-secondary'>Ville départ :</span> {{voyage.ville_depart}} par {{voyage.transport}}
+        </div>
+        <div class="col-md-12"><hr></div>
+        <div class="col-md-6">
+          <span class='text-secondary'>Aller le :</span> {{voyage.aller}}
+        </div>
+        <div class="col-md-6">
+          <span class='text-secondary'>Retour le :</span> {{voyage.retour}}
+        </div>
+        <div class="col-md-12"><hr></div>
+        <div class="col-md-6"><span class='text-secondary'> Nom de l'hotel :</span> {{voyage.nom_hotel}}</div>
+        <div class="col-md-6"><span class='text-secondary'> Nombre d'etoiles :</span> <small class="etoiles" data-stars={{voyage.etoiles}}></small></div>
+        <div class="col-md-12"><hr></div>
+      </div>
+    </div>
+  </div>
+  <div class="container py-5">
+    <p class="lead">
+      {{voyage.description}}
+    </p>
+  </div>
+</div>
+
 {% endblock body %}
 
 
@@ -28,6 +99,5 @@
   })
 </script>
 
-<script src="{% static '/js/owl.carousel.min.js' %}"></script>
-<script src="{% static '/js/caroussel.js' %}"></script>
+
 {% endblock scripts %}

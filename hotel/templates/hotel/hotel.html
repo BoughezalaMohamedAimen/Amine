@@ -11,13 +11,17 @@
 {% endblock styles %}
 
 
-{% block title %} Réservation Hotel {% endblock title %}
+{% block title %} Formulaire de Réservation Hotel   {% endblock title %}
 
 
 
 {% block body %}
-<div class="container">
-  <h3 class='py-3'><a href="{{ request.get_full_path }}">{{ request.get_full_path }}</a></h3>
+<div class="position-relative" style='background: url(/static/img/hotel.jpg);-webkit-background-size: cover;background-size: cover; height: 270px;'>
+  <div class="position-absolute" style='background: rgba(0,0,0,.5);width: 100%;height: 100%; top: 0;left: 0;'><h1 class="text-center center text-white " style='-webkit-filter: blur(1px);filter: blur(1px);'><i class='fa fa-hotel'></i> Réservation d'<span class='text-day'>hotel</span></h1></div>
+
+</div>
+<div class="container py-4">
+  <br>
   <form method='post'>
     {% csrf_token %}
     <div class="row text-secondary">
@@ -43,7 +47,7 @@
     </div>
     {{message}}
     <div class="text-center py-3">
-          <button type='submit' class='button btn-day text-white'> Envoer</button>
+          <button type='submit' class='button btn-day text-white'> Envoyer</button>
     </div>
   </form>
 </div>

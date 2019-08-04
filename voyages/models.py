@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.urls import reverse
 TRANSPORT_CHOICES=(('Avion','Avion'),('Bus','Bus'),('Bateau','Bateau'),)
+from ckeditor.fields import RichTextField
 
 
 
@@ -31,7 +32,7 @@ class Voyage(models.Model):
     image2=models.ImageField(upload_to='voyages',null='true',blank='true')
     image3=models.ImageField(upload_to='voyages',null='true',blank='true')
     image4=models.ImageField(upload_to='voyages',null='true',blank='true')
-    description=models.TextField(blank='true')
+    description=RichTextField()
 
 
 
